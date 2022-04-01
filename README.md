@@ -1,3 +1,3 @@
-## Video Library Backend
+## Ani-Watch
 
-This folder contains the Mock Backend created for Video Library App. It contains different API end-points and database configuration for building Video Library; so that you can focus on building Frontend.
+A video streaming service for gamers and anime lovers.
