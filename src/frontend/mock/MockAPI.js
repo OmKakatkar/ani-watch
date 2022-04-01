@@ -4,7 +4,7 @@ import './MockAPI.css';
 function MockAPI() {
 	return (
 		<div className="MockAPI ecom-main">
-			<Mockman colorScheme="dark" />
+			<Mockman />
 		</div>
 	);
 }
