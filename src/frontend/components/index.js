@@ -1,1 +1,1 @@
-// Barrel file for components
+export { Input } from './Input/Input';
