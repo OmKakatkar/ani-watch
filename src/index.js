@@ -1,23 +1,23 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import App from './frontend/App/App';
 import { AuthProvider } from './frontend/context/auth-context';
 import { makeServer } from './server';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { VideoProvider } from './frontend/context/video-context';
 
 // Call make Server
 makeServer();
 
-// API for rendering in React 18
-const container = document.getElementById('root');
-const root = createRoot(container);
-
-root.render(
+ReactDOM.render(
 	<React.StrictMode>
 		<Router>
 			<AuthProvider>
-				<App />
+				<VideoProvider>
+					<App />
+				</VideoProvider>
 			</AuthProvider>
 		</Router>
-	</React.StrictMode>
+	</React.StrictMode>,
+	document.getElementById('root')
 );
