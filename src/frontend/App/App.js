@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { Login, SignUp } from '../pages';
-import MockAPI from '../mock/MockAPI'
+import MockAPI from '../mock/MockAPI';
+import { Login, Page404, SignUp } from '../pages';
 import './App.css';
 
 function App() {
@@ -11,8 +11,9 @@ function App() {
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<SignUp />} />
 				<Route path="/mockman" element={<MockAPI />} />
+				<Route path="*" element={<Page404 />} />
 			</Routes>
-			<ToastContainer autoClose={2000}/>
+			<ToastContainer autoClose={2000} />
 		</div>
 	);
 }
