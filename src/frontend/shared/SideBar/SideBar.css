@@ -32,6 +32,6 @@
 	background-color: var(--clr-secondary-background-lighter);
 }
 
-.sidebar-inner-content div{
-  padding: var(--padding-1r);
+.sidebar-inner-content div {
+	padding: var(--padding-1r);
 }
