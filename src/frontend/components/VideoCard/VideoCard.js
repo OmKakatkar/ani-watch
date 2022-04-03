@@ -6,7 +6,6 @@ import './VideoCard.css';
 
 export function VideoCard({ videoData }) {
 	const { _id, title, category } = videoData;
-	console.table(videoData);
 	return (
 		<article className="video-card">
 			<div className="card-media">
