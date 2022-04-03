@@ -32,3 +32,9 @@ body::-webkit-scrollbar-thumb {
 	background-color: var(--clr-primary-background);
 	min-height: 100vh;
 }
+
+.main-container {
+	margin-left: var(--width-sidebar);
+	margin-top: var(--height-header);
+	padding: var(--padding-1r);
+}

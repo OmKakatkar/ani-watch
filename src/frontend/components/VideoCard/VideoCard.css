@@ -6,7 +6,15 @@
 }
 
 .card-media {
-	min-height: 14rem;
+	height: 14rem;
+	max-height: 14rem;
+	overflow: hidden;
+}
+
+.card-media img {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 .card-media iframe {
