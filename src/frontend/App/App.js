@@ -12,13 +12,15 @@ function App() {
 		<div className="app">
 			<Header />
 			<SideBar />
-			<Routes>
-				<Route path="/" element={<VideoContainer />} />
-				<Route path="/login" element={<Login />} />
-				<Route path="/signup" element={<SignUp />} />
-				<Route path="/mockman" element={<MockAPI />} />
-				<Route path="*" element={<Page404 />} />
-			</Routes>
+			<div className="main-container">
+				<Routes>
+					<Route path="/" element={<VideoContainer />} />
+					<Route path="/login" element={<Login />} />
+					<Route path="/signup" element={<SignUp />} />
+					<Route path="/mockman" element={<MockAPI />} />
+					<Route path="*" element={<Page404 />} />
+				</Routes>
+			</div>
 			<ToastContainer autoClose={2000} />
 		</div>
 	);
