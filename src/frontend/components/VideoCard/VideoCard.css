@@ -1,0 +1,44 @@
+.video-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--clr-primary-background);
+}
+
+.card-media {
+	min-height: 14rem;
+}
+
+.card-media iframe {
+	block-size: 100%;
+}
+
+.video-card-body {
+	padding-top: 1rem;
+	margin: 0;
+	max-height: 10rem;
+	overflow: hidden;
+}
+
+.card-heading {
+	max-height: 4rem;
+	overflow: hidden;
+	padding-right: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.card-btn {
+	cursor: pointer;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	color: var(--clr-primary-contrast);
+	border-radius: 50%;
+	width: 3rem;
+	height: 3rem;
+	transition: background-color 200ms ease-in-out;
+}
+
+.card-btn:hover {
+	background-color: var(--clr-secondary-background-lighter);
+}

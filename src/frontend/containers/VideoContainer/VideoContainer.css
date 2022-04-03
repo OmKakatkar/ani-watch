@@ -1,0 +1,10 @@
+.video-grid {
+  margin-left: var(--width-sidebar);
+  margin-top: var(--height-header);
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr));
+  grid-auto-rows: 25rem;
+  gap: 1rem;
+  padding: var(--padding-1r);
+  min-height: 100vh;
+}
