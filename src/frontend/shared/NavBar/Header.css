@@ -30,15 +30,15 @@
 }
 
 .header-searchbar-wrapper {
-  display: flex;
-  width: 30vw;
+	display: flex;
+	width: 30vw;
 }
 
 .header-searchbar-wrapper .btn {
 	margin: 0;
-	padding: var(--padding-1r) var(--padding-1r);
+	padding: var(--padding-1r-2r);
 	background-color: var(--clr-primary-background-lighter);
-  transition: var(--transition-background-fast);
+	transition: var(--transition-background-fast);
 }
 
 .header-searchbar-wrapper .btn:hover {
@@ -47,9 +47,15 @@
 
 .header-searchbar {
 	background-color: var(--clr-primary-background);
-	border: 2px solid var(--clr-secondary-background-lighter);
+	border: 2px solid  var(--clr-primary-background-lighter);
 	padding: var(--padding-1r);
-  flex: 1;
+	flex: 1;
+}
+
+.header-searchbar:focus-visible, 
+.header-searchbar:active {
+  outline: none;
+  border-color: var(--primary-blue);
 }
 
 /* Remove the cross icon in searchbar */

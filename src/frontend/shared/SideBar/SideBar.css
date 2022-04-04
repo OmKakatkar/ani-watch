@@ -43,6 +43,7 @@
 .sidebar-item-link:hover,
 .sidebar-item-link:focus-visible {
 	background-color: var(--clr-primary-background-lighter);
+  outline: none;
 }
 
 .sidebar-item-link {

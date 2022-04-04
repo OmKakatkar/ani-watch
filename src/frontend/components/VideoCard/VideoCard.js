@@ -7,8 +7,8 @@ import './VideoCard.css';
 function VideoCard({ videoData }) {
 	const { _id, title, category } = videoData;
 	return (
-		<article className="video-card">
-			<Link to={`/watch/${category}/${_id}`}>
+		<article className="video-card flex">
+			<Link to={`/watch/${category}/${_id}`} className='flex-column'>
 				<div className="card-media">
 					<img src={getImageUrl(_id)} alt={title} />
 				</div>
@@ -16,10 +16,11 @@ function VideoCard({ videoData }) {
 					<h3 className="text-md text-white card-heading">{title}</h3>
 					<h5 className="text-sm text-gray">{category}</h5>
 				</div>
-				<button className="card-btn text-lg">
-					<FontAwesomeIcon icon={faEllipsisVertical} />
-				</button>
+			<div className="video-card-spacer"></div>
 			</Link>
+			<button className="card-btn text-lg">
+				<FontAwesomeIcon icon={faEllipsisVertical} />
+			</button>
 		</article>
 	);
 }
