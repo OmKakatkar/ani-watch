@@ -44,7 +44,7 @@
 	border-radius: 50%;
 	width: 3rem;
 	height: 3rem;
-	transition: background-color 200ms ease-in-out;
+	transition: var(--transition-background-fast);
 }
 
 .card-btn:hover {
