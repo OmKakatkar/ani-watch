@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { getImageUrl } from '../../utils/video-helpers';
 import './VideoCard.css';
 
-export function VideoCard({ videoData }) {
+function VideoCard({ videoData }) {
 	const { _id, title, category } = videoData;
 	return (
 		<article className="video-card">
@@ -23,3 +23,5 @@ export function VideoCard({ videoData }) {
 		</article>
 	);
 }
+
+export default VideoCard;

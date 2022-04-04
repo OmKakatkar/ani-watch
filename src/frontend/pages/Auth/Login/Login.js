@@ -8,7 +8,7 @@ import { useAuth } from '../../../context/auth-context';
 
 import '../Auth.css';
 
-export const Login = () => {
+function Login() {
 	const initialLoginData = {
 		email: '',
 		password: ''
@@ -83,4 +83,6 @@ export const Login = () => {
 			</div>
 		</main>
 	);
-};
+}
+
+export default Login;

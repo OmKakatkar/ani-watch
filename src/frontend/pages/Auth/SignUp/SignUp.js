@@ -8,7 +8,7 @@ import { useAuth } from '../../../context/auth-context';
 
 import '../Auth.css';
 
-export const SignUp = () => {
+function SignUp() {
 	const initialSignUpData = {
 		firstName: '',
 		lastName: '',
@@ -92,4 +92,6 @@ export const SignUp = () => {
 			</div>
 		</main>
 	);
-};
+}
+
+export default SignUp;
