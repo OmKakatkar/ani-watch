@@ -14,7 +14,6 @@ function SideBar() {
 			<div className="sidebar-spacer"></div>
 			<div className="sidebar-content">
 				<nav className="sidebar-inner-content">
-					{/* FIXME: Add routing and actual content */}
 					<ul className="sidebar-list">
 						<li className="sidebar-list-item">
 							<NavLink to="/" className="sidebar-item-link text-white">
