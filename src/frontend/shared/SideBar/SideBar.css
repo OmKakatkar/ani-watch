@@ -1,0 +1,37 @@
+.sidebar {
+	height: 100vh;
+	min-width: var(--width-sidebar);
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	top: 0;
+	background-color: var(--clr-secondary-background);
+	color: var(--clr-primary-contrast);
+}
+
+.sidebar-spacer {
+	margin-top: var(--height-header);
+	width: 100%;
+}
+
+.sidebar-content {
+	overflow-y: auto;
+}
+
+.sidebar-content::-webkit-scrollbar {
+	width: 10px;
+}
+
+.sidebar-content::-webkit-scrollbar-track,
+.sidebar-content::-webkit-scrollbar-thumb {
+	background: transparent;
+	border-radius: 100px;
+}
+
+.sidebar-content:hover::-webkit-scrollbar-thumb {
+	background-color: var(--clr-secondary-background-lighter);
+}
+
+.sidebar-inner-content div {
+	padding: var(--padding-1r);
+}

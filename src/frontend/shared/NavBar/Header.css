@@ -1,0 +1,10 @@
+.header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	color: var(--clr-primary-contrast);
+	background-color: var(--clr-secondary-background);
+	padding: var(--padding-1r);
+	z-index: 1;
+	max-height: var(--height-header);
+}

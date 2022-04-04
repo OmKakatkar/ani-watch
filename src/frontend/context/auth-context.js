@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
 		try {
 			const { createdUser: user, encodedToken: token } = await signup({
 				firstName,
-        lastName,
+				lastName,
 				email,
 				password
 			});
