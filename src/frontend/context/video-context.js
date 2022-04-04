@@ -16,17 +16,17 @@ const reducer = (state, action) => {
 };
 
 const VideoProvider = ({ children }) => {
-	const [state, dispatch] = useReducer(reducer, { videoList: [] });
+	const [videoState, videoDispatch] = useReducer(reducer, { videoList: [] });
 	const getVideoList = async () => {
 		const videos = await getVideos();
-		dispatch({ type: 'GET_VIDEOS', payload: videos });
+		videoDispatch({ type: 'GET_VIDEOS', payload: videos });
 	};
 
 	useEffect(() => {
 		getVideoList();
 	}, []);
 
-	const providerData = { state };
+	const providerData = { videoState };
 	return (
 		<VideoContext.Provider value={providerData}>
 			{children}

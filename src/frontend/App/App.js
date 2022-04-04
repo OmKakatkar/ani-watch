@@ -1,11 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import SideBar from '../shared/SideBar/SideBar';
-import VideoContainer from '../containers/VideoContainer/VideoContainer';
-import MockAPI from '../mock/MockAPI';
-import { Login, Page404, SignUp } from '../pages';
-import './App.css';
 import Header from '../shared/NavBar/Header';
+import MockAPI from '../mock/MockAPI';
+import { Login, Page404, SignUp, Home } from '../pages';
+import './App.css';
 
 function App() {
 	return (
@@ -14,7 +13,7 @@ function App() {
 			<SideBar />
 			<div className="main-container">
 				<Routes>
-					<Route path="/" element={<VideoContainer />} />
+					<Route path="/" element={<Home />} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/signup" element={<SignUp />} />
 					<Route path="/mockman" element={<MockAPI />} />
