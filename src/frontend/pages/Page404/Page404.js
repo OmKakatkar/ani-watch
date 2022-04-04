@@ -1,4 +1,4 @@
-export function Page404() {
+function Page404() {
 	return (
 		<div className="flex-container">
 			<img
@@ -10,3 +10,5 @@ export function Page404() {
 		</div>
 	);
 }
+
+export default Page404;

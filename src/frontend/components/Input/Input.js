@@ -1,4 +1,4 @@
-export function Input({ type, label, name, value, handleChange }) {
+function Input({ type, label, name, value, handleChange }) {
 	return (
 		<div className="input-container">
 			<label htmlFor={name}> {label}</label>
@@ -12,3 +12,5 @@ export function Input({ type, label, name, value, handleChange }) {
 		</div>
 	);
 }
+
+export default Input;

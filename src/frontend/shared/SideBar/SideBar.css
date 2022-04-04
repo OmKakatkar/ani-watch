@@ -32,6 +32,30 @@
 	background-color: var(--clr-secondary-background-lighter);
 }
 
-.sidebar-inner-content div {
-	padding: var(--padding-1r);
+.sidebar-inner-content {
+	margin-right: 0.5rem;
+}
+
+.sidebar-item-link {
+	transition: var(--transition-background-fast);
+}
+
+.sidebar-item-link:hover,
+.sidebar-item-link:focus-visible {
+	background-color: var(--clr-primary-background-lighter);
+  outline: none;
+}
+
+.sidebar-item-link {
+	width: 100%;
+	padding: var(--padding-1r-2r);
+}
+
+.sidebar-item-link.active {
+	background-color: var(--clr-secondary-background-lighter);
+}
+
+.sidebar-item-link span {
+	display: inline-block;
+	margin-left: 1.5rem;
 }
