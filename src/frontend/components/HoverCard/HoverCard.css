@@ -8,29 +8,3 @@
 	z-index: 1;
 	align-items: flex-start;
 }
-
-.hover-card-item-link {
-	cursor: pointer;
-	transition: var(--transition-background-fast);
-}
-
-.hover-card-item-link:hover,
-.hover-card-item-link:focus-visible {
-	background-color: var(--clr-primary-background-lighter);
-	outline: none;
-}
-
-.hover-card-item-link {
-	align-self: flex-start;
-	width: 100%;
-	padding: var(--padding-1r-2r);
-}
-
-.hover-card-item-link.active {
-	background-color: var(--clr-secondary-background-lighter);
-}
-
-.hover-card-item-link span {
-	display: inline-block;
-	margin-left: 1.5rem;
-}

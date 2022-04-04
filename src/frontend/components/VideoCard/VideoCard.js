@@ -1,13 +1,14 @@
-import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { getImageUrl } from '../../utils/video-helpers';
-import { HoverCard } from '../';
-import './VideoCard.css';
-import useDetectClickOutside from '../../hook/useDetectClickOutside';
 
-function VideoCard({ videoData }) {
+import useDetectClickOutside from '../../hook/useDetectClickOutside';
+import { getImageUrl } from '../../utils/video-helpers';
+import { HoverCard, List } from '../';
+
+import './VideoCard.css';
+
+function VideoCard({ videoData, menu }) {
 	const { _id, title, category } = videoData;
 	const { triggerRef, nodeRef, showItem } = useDetectClickOutside(false);
 
@@ -26,7 +27,11 @@ function VideoCard({ videoData }) {
 			<button className="card-btn text-lg" ref={triggerRef}>
 				<FontAwesomeIcon icon={faEllipsisVertical} />
 			</button>
-			{showItem && <HoverCard ref={nodeRef} />}
+			{showItem && (
+				<HoverCard ref={nodeRef}>
+					<List menuList={menu} videoData={videoData} />
+				</HoverCard>
+			)}
 		</article>
 	);
 }
