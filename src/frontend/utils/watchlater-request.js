@@ -16,7 +16,7 @@ export const getWatchLater = async authToken => {
 				authorization: authToken
 			}
 		});
-		return data.videos;
+		return data.watchlater;
 	} catch (err) {
 		notify(error, 'Unable to fetch data');
 		console.error('Error GET WATCHLATER', err.response.status);
@@ -41,7 +41,7 @@ export const addToWatchLater = async (authToken, video) => {
 			}
 		);
 		notify(success, 'Added to Watch Later');
-		return data.videos;
+		return data.watchlater;
 	} catch (err) {
 		if (err.response.status === 409) {
 			notify(info, 'Video exist in Watch Later');
@@ -67,7 +67,7 @@ export const removeFromWatchLater = async (authToken, { id }) => {
 			}
 		});
 		notify(success, 'Removed from Watch Later');
-		return data.videos;
+		return data.watchlater;
 	} catch (err) {
 		notify(error, 'Unable to remove data');
 		console.error('Error REMOVE WATCHLATER', err.response.status);
