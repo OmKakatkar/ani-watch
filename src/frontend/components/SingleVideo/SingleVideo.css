@@ -1,0 +1,33 @@
+.video-wrapper {
+	min-height: 30rem;
+	height: max-content;
+	width: max-content;
+}
+
+.video-wrapper iframe {
+	display: block;
+	height: 100%;
+}
+
+.video-heading {
+	width: 36ch;
+	padding: 1.5rem;
+}
+
+.video-button-container {
+	display: flex;
+	flex: 1;
+	justify-content: space-around;
+}
+
+.video-button-container button {
+	cursor: pointer;
+}
+
+.video-text {
+	margin-top: 1rem;
+	padding: 1rem;
+	border-top: 2px solid var(--clr-secondary-background);
+	width: 65ch;
+	color: var(--clr-secondary-background-lighter);
+}

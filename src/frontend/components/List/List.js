@@ -13,7 +13,7 @@ function List({ videoData, useVideoCtx }) {
 							className="list-item-link text-white"
 							onClick={() => {
 								handleClick(user.token, videoData);
-								execute();
+								execute(user.token);
 							}}
 						>
 							<div className="text-left">

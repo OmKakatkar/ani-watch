@@ -14,9 +14,12 @@ import {
 	WatchLater
 } from '../pages';
 import './App.css';
-import { user } from '../constants/user-constant';
+// import { user } from '../constants/user-constant';
+import { SingleVideo } from '../components';
+import { useAuth } from '../context/auth-context';
 
 function App() {
+	const { user } = useAuth();
 	return (
 		<div className="app">
 			<Header />
@@ -25,6 +28,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/mockman" element={<MockAPI />} />
+					<Route path="/watch/:category/:videoId" element={<SingleVideo />} />
 					{!user.token && (
 						<>
 							<Route path="/login" element={<Login />} />

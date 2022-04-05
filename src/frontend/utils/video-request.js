@@ -25,11 +25,12 @@ export const getVideos = async () => {
  * @function
  * @return {Promise<Object>} Single Video Object
  */
-export const getSingleVideos = async id => {
+export const getSingleVideo = async id => {
 	try {
 		const { data } = await axios.get(`${API_SINGLE_VIDEO}/${id}`);
-		return data.videos;
+		return data.video;
 	} catch (err) {
+		console.log(err);
 		notify(error, 'Unable to fetch data');
 		console.error('Error GET SINGLE VIDEO', err.response.status);
 	}
