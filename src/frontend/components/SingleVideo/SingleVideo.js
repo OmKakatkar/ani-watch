@@ -11,6 +11,7 @@ import { getVideoUrl } from '../../utils/video-helpers';
 import { getSingleVideo } from '../../utils/video-request';
 import { addToWatchLater } from '../../utils/watchlater-request';
 import { useAuth } from '../../context/auth-context';
+import { addToHistory } from '../../utils/history-request';
 import Loader from '../Loader/Loader';
 import './SingleVideo.css';
 
@@ -40,8 +41,10 @@ function SingleVideo() {
 					<ReactPlayer
 						url={getVideoUrl(videoId)}
 						controls
-						// FIXME: Connect On Play to History
-						onPlay={console.log('Playing')}
+						playing={true}
+						onPlay={() => {
+							addToHistory(user.token, video);
+						}}
 					/>
 				)}
 				<div className="flex">

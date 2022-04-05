@@ -1,0 +1,8 @@
+.video-grid-head {
+	position: fixed;
+	width: calc(100% - var(--width-sidebar));
+	min-height: var(--height-header);
+	background-color: var(--clr-secondary-background);
+	border-top: 1px solid var(--clr-secondary-background-lighter);
+	border-bottom: 1px solid var(--clr-secondary-background-lighter);
+}

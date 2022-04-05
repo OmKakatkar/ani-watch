@@ -10,3 +10,4 @@ export const API_LIKES = '/api/user/likes';
 export const API_WATCH_LATER = '/api/user/watchlater';
 export const API_PLAY_LIST = '/api/user/playlists';
 export const API_HISTORY = '/api/user/history';
+export const API_HISTORY_ALL = '/api/user/history/all';
