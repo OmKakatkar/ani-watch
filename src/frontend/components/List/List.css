@@ -1,0 +1,25 @@
+.list-item-link {
+	cursor: pointer;
+	transition: var(--transition-background-fast);
+}
+
+.list-item-link:hover,
+.list-item-link:focus-visible {
+	background-color: var(--clr-primary-background-lighter);
+	outline: none;
+}
+
+.list-item-link {
+	align-self: flex-start;
+	width: 100%;
+	padding: var(--padding-1r-2r);
+}
+
+.list-item-link.active {
+	background-color: var(--clr-secondary-background-lighter);
+}
+
+.list-item-link span {
+	display: inline-block;
+	margin-left: 1.5rem;
+}

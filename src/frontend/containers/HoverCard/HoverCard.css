@@ -1,0 +1,10 @@
+.hover-card {
+	position: absolute;
+	padding: var(--padding-1r);
+	background-color: var(--clr-secondary-background-lighter);
+	width: max-content;
+	height: auto;
+	bottom: 5rem;
+	z-index: 1;
+	align-items: flex-start;
+}

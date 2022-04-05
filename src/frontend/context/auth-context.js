@@ -11,12 +11,12 @@ const AuthProvider = ({ children }) => {
 
 	const handleLogin = async ({ email, password }) => {
 		try {
-			const { foundUser: user, encodedToken: token } = await login({
+			const { encodedToken: token } = await login({
 				email,
 				password
 			});
 			if (token) {
-				localStorage.setItem(currentUser, JSON.stringify({ user, token }));
+				localStorage.setItem(currentUser, JSON.stringify({ token }));
 				setUser(JSON.parse(localStorage.getItem(currentUser)));
 			}
 		} catch (err) {
@@ -26,14 +26,14 @@ const AuthProvider = ({ children }) => {
 
 	const handleSignUp = async ({ firstName, lastName, email, password }) => {
 		try {
-			const { createdUser: user, encodedToken: token } = await signup({
+			const { encodedToken: token } = await signup({
 				firstName,
 				lastName,
 				email,
 				password
 			});
 			if (token) {
-				localStorage.setItem(currentUser, JSON.stringify({ user, token }));
+				localStorage.setItem(currentUser, JSON.stringify({ token }));
 				setUser(JSON.parse(localStorage.getItem(currentUser)));
 			}
 		} catch (err) {

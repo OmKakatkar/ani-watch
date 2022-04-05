@@ -7,17 +7,16 @@ import {
 	Login,
 	Page404,
 	SignUp,
-	Home,
 	History,
 	Likes,
 	Playlist,
+	Home,
 	WatchLater
 } from '../pages';
 import './App.css';
-import { useAuth } from '../context/auth-context';
+import { user } from '../constants/user-constant';
 
 function App() {
-	const { user } = useAuth();
 	return (
 		<div className="app">
 			<Header />
