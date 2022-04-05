@@ -3,8 +3,9 @@ import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 import useDetectClickOutside from '../../hook/useDetectClickOutside';
+import HoverCard from '../../containers/HoverCard/HoverCard';
 import { getImageUrl } from '../../utils/video-helpers';
-import { HoverCard, List } from '../';
+import { List } from '../';
 
 import './VideoCard.css';
 
