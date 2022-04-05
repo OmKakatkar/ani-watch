@@ -3,7 +3,7 @@ import { useAuth } from '../../context/auth-context';
 
 function List({ videoData, useVideoCtx }) {
 	const { user } = useAuth();
-	const { menuList } = useVideoCtx();
+	const { execute, menuList } = useVideoCtx();
 	return (
 		<ul>
 			{menuList &&
@@ -11,7 +11,10 @@ function List({ videoData, useVideoCtx }) {
 					<li key={id} className="list-list-item">
 						<button
 							className="list-item-link text-white"
-							onClick={() => handleClick(user.token, videoData)}
+							onClick={() => {
+								handleClick(user.token, videoData);
+								execute();
+							}}
 						>
 							<div className="text-left">
 								{icon}

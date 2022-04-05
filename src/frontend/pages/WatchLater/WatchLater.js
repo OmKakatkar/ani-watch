@@ -1,11 +1,14 @@
-import { HomeProvider, useHomeCtx } from '../../context/home-context';
+import {
+	WatchLaterProvider,
+	useWatchLaterCtx
+} from '../../context/watchlater-context';
 import VideoContainer from '../../containers/VideoContainer/VideoContainer';
 
 function WatchLater() {
 	return (
-		<HomeProvider className="main-container">
-			<VideoContainer useVideoCtx={useHomeCtx} />
-		</HomeProvider>
+		<WatchLaterProvider className="main-container">
+			<VideoContainer useVideoCtx={useWatchLaterCtx} />
+		</WatchLaterProvider>
 	);
 }
 export default WatchLater;

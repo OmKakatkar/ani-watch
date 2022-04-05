@@ -21,6 +21,7 @@ const reducer = (state, action) => {
 
 // Takes an async function and returns a callback function along with state, error and value.
 // Optionally takes a boolean to invoke the callback function immediately
+// Currently cannot pass args to the asyncFunction, results in an infinite loop.
 const useAsync = (asyncFunction, immediate = false) => {
 	const initialState = {
 		status: IDLE,
@@ -29,7 +30,6 @@ const useAsync = (asyncFunction, immediate = false) => {
 	};
 
 	const [state, dispatch] = useReducer(reducer, initialState);
-
 	const execute = useCallback(() => {
 		const invoke = async () => {
 			try {

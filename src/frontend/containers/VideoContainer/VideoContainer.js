@@ -1,10 +1,11 @@
-import { VideoCard } from '../../components/';
+import { VideoCard, Loader } from '../../components/';
 import './VideoContainer.css';
 
 function VideoContainer({ useVideoCtx }) {
 	const { status, videos } = useVideoCtx();
 	return (
 		<div className="video-grid">
+			{status === 'pending' && <Loader />}
 			{status === 'success' &&
 				videos.map(videoData => (
 					<VideoCard
