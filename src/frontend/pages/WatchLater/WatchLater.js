@@ -7,7 +7,9 @@ import VideoContainer from '../../containers/VideoContainer/VideoContainer';
 function WatchLater() {
 	return (
 		<WatchLaterProvider className="main-container">
-			<VideoContainer useVideoCtx={useWatchLaterCtx} />
+			<div className="main-container-body">
+				<VideoContainer useVideoCtx={useWatchLaterCtx} />
+			</div>
 		</WatchLaterProvider>
 	);
 }

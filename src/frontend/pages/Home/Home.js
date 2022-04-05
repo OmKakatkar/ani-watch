@@ -4,7 +4,9 @@ import VideoContainer from '../../containers/VideoContainer/VideoContainer';
 function Home() {
 	return (
 		<HomeProvider className="main-container">
-			<VideoContainer useVideoCtx={useHomeCtx} />
+			<div className="main-container-body">
+				<VideoContainer useVideoCtx={useHomeCtx} />
+			</div>
 		</HomeProvider>
 	);
 }
