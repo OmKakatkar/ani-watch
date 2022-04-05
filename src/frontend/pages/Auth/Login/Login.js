@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { Input } from '../../../components';
 import { LOGIN_DB } from '../../../constants/login-form-data';
@@ -14,6 +14,8 @@ function Login() {
 		password: ''
 	};
 
+	const navigate = useNavigate();
+
 	const { handleLogin } = useAuth();
 	const [loginData, setLoginData] = useState(initialLoginData);
 
@@ -24,6 +26,7 @@ function Login() {
 	const handleSubmit = async e => {
 		e.preventDefault();
 		await handleLogin(loginData);
+		navigate('/');
 	};
 
 	const handleGuestLogin = async e => {

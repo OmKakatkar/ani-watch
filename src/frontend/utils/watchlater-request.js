@@ -42,8 +42,7 @@ export const addToWatchLater = async (authToken, video) => {
 			notify(info, 'Video exist in Watch Later');
 			return [];
 		} else {
-			notify(error, 'Unable to post data');
-			console.error('Error POST WATCHLATER', err.response.status);
+			notify(error, 'Please Login');
 		}
 	}
 };

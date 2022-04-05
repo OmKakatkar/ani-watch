@@ -40,6 +40,7 @@ function SingleVideo() {
 					<ReactPlayer
 						url={getVideoUrl(videoId)}
 						controls
+						// FIXME: Connect On Play to History
 						onPlay={console.log('Playing')}
 					/>
 				)}
