@@ -14,6 +14,7 @@ import { useAuth } from '../../context/auth-context';
 import { addToHistory } from '../../utils/history-request';
 import Loader from '../Loader/Loader';
 import './SingleVideo.css';
+import { addToLiked } from '../../utils/like-request';
 
 function SingleVideo() {
 	const { user } = useAuth();
@@ -50,7 +51,11 @@ function SingleVideo() {
 				<div className="flex">
 					<h1 className="video-heading text-huge text-white">{video.title}</h1>
 					<div className="video-button-container">
-						<button>
+						<button
+							onClick={() => {
+								addToLiked(user.token, video);
+							}}
+						>
 							<FontAwesomeIcon
 								icon={faThumbsUp}
 								className="text-white text-xhuge"

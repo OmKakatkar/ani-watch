@@ -62,7 +62,7 @@ export const removeFromHistory = async (authToken, { _id }) => {
 				authorization: authToken
 			}
 		});
-		notify(success, 'Removed from Watch Later');
+		notify(success, 'Removed from History');
 		return data.history;
 	} catch (err) {
 		notify(error, 'Unable to remove data');
