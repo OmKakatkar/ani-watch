@@ -8,7 +8,7 @@ import { HoverCard, List } from '../';
 
 import './VideoCard.css';
 
-function VideoCard({ videoData, menu }) {
+function VideoCard({ videoData, useVideoCtx }) {
 	const { _id, title, category } = videoData;
 	const { triggerRef, nodeRef, showItem } = useDetectClickOutside(false);
 
@@ -29,7 +29,7 @@ function VideoCard({ videoData, menu }) {
 			</button>
 			{showItem && (
 				<HoverCard ref={nodeRef}>
-					<List menuList={menu} videoData={videoData} />
+					<List videoData={videoData} useVideoCtx={useVideoCtx} />
 				</HoverCard>
 			)}
 		</article>

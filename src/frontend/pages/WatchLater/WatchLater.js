@@ -1,5 +1,11 @@
-// TODO: Connect to API
+import { HomeProvider, useHomeCtx } from '../../context/home-context';
+import VideoContainer from '../../containers/VideoContainer/VideoContainer';
+
 function WatchLater() {
-	return <div>WatchLater</div>;
+	return (
+		<HomeProvider className="main-container">
+			<VideoContainer useVideoCtx={useHomeCtx} />
+		</HomeProvider>
+	);
 }
 export default WatchLater;

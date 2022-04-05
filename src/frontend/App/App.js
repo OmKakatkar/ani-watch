@@ -7,10 +7,10 @@ import {
 	Login,
 	Page404,
 	SignUp,
-	Home,
 	History,
 	Likes,
 	Playlist,
+	Home,
 	WatchLater
 } from '../pages';
 import './App.css';

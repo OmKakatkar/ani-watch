@@ -1,8 +1,9 @@
 import './List.css';
 import { useAuth } from '../../context/auth-context';
 
-function List({ menuList, videoData }) {
+function List({ videoData, useVideoCtx }) {
 	const { user } = useAuth();
+	const { menuList } = useVideoCtx();
 	return (
 		<ul>
 			{menuList &&

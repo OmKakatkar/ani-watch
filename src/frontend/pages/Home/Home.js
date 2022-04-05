@@ -1,11 +1,11 @@
+import { HomeProvider, useHomeCtx } from '../../context/home-context';
 import VideoContainer from '../../containers/VideoContainer/VideoContainer';
-import { useVideo } from '../../context/video-context';
-import { homeMenu } from '../../constants/hover-menu';
 
 function Home() {
-	const { videoState } = useVideo();
-	const { videoList } = videoState;
-	return <VideoContainer videoList={videoList} menu={homeMenu} />;
+	return (
+		<HomeProvider className="main-container">
+			<VideoContainer useVideoCtx={useHomeCtx} />
+		</HomeProvider>
+	);
 }
-
 export default Home;
