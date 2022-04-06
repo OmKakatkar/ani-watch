@@ -3,7 +3,12 @@ import { API_WATCH_LATER } from '../constants/api-constant';
 import { notify } from './notify';
 import { success, error, info } from '../constants/toast-constants';
 
-// All API request use a user token stored as a constant. This will change later
+/**
+ * Get videos from Watchlater
+ * @async
+ * @function
+ * @returns {Promise<Array>} Watch Later Videos
+ */
 export const getWatchLater = async authToken => {
 	try {
 		const { data } = await axios.get(API_WATCH_LATER, {

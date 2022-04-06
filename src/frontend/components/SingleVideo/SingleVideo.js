@@ -11,8 +11,10 @@ import { getVideoUrl } from '../../utils/video-helpers';
 import { getSingleVideo } from '../../utils/video-request';
 import { addToWatchLater } from '../../utils/watchlater-request';
 import { useAuth } from '../../context/auth-context';
+import { addToHistory } from '../../utils/history-request';
 import Loader from '../Loader/Loader';
 import './SingleVideo.css';
+import { addToLiked } from '../../utils/like-request';
 
 function SingleVideo() {
 	const { user } = useAuth();
@@ -40,14 +42,20 @@ function SingleVideo() {
 					<ReactPlayer
 						url={getVideoUrl(videoId)}
 						controls
-						// FIXME: Connect On Play to History
-						onPlay={console.log('Playing')}
+						playing={true}
+						onPlay={() => {
+							addToHistory(user.token, video);
+						}}
 					/>
 				)}
 				<div className="flex">
 					<h1 className="video-heading text-huge text-white">{video.title}</h1>
 					<div className="video-button-container">
-						<button>
+						<button
+							onClick={() => {
+								addToLiked(user.token, video);
+							}}
+						>
 							<FontAwesomeIcon
 								icon={faThumbsUp}
 								className="text-white text-xhuge"

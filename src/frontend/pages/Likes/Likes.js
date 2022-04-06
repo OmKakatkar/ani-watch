@@ -1,5 +1,13 @@
-// TODO: Connect to API
+import { LikeProvider, useLikeCtx } from '../../context/like-context';
+import VideoContainer from '../../containers/VideoContainer/VideoContainer';
+
 function Likes() {
-	return <div>Likes</div>;
+	return (
+		<LikeProvider className="main-container">
+			<div className="main-container-body">
+				<VideoContainer useVideoCtx={useLikeCtx} />
+			</div>
+		</LikeProvider>
+	);
 }
 export default Likes;
