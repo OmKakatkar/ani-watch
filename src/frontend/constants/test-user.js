@@ -1,6 +1,6 @@
 export const TEST_USER_LOGIN = {
 	email: 'testuser@gmail.com',
-	password: 'test123'
+	password: '348djFGYC^*kw(lkna'
 };
 
 export const TEST_USER_SIGNUP = {

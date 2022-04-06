@@ -2,14 +2,13 @@ import axios from 'axios';
 import { API_WATCH_LATER } from '../constants/api-constant';
 import { notify } from './notify';
 import { success, error, info } from '../constants/toast-constants';
-import { user } from '../constants/user-constant';
 
 // All API request use a user token stored as a constant. This will change later
 export const getWatchLater = async authToken => {
 	try {
 		const { data } = await axios.get(API_WATCH_LATER, {
 			headers: {
-				authorization: user.token
+				authorization: authToken
 			}
 		});
 		return data.watchlater;
@@ -32,7 +31,7 @@ export const addToWatchLater = async (authToken, video) => {
 			{ video },
 			{
 				headers: {
-					authorization: user.token
+					authorization: authToken
 				}
 			}
 		);
@@ -43,8 +42,7 @@ export const addToWatchLater = async (authToken, video) => {
 			notify(info, 'Video exist in Watch Later');
 			return [];
 		} else {
-			notify(error, 'Unable to post data');
-			console.error('Error POST WATCHLATER', err.response.status);
+			notify(error, 'Please Login');
 		}
 	}
 };
@@ -59,7 +57,7 @@ export const removeFromWatchLater = async (authToken, { _id }) => {
 	try {
 		const { data } = await axios.delete(`${API_WATCH_LATER}/${_id}`, {
 			headers: {
-				authorization: user.token
+				authorization: authToken
 			}
 		});
 		notify(success, 'Removed from Watch Later');
