@@ -13,7 +13,10 @@ import {
 } from '../../utils/playlist-request';
 
 function PlaylistModal() {
-	const [playlistName, setPlaylistName] = useState('');
+	const [playlistForm, setPlaylistForm] = useState({
+		name: '',
+		description: ''
+	});
 	const { playlistState, playlistDispatch } = usePlaylistCtx();
 	const { playlists, currentVideo } = playlistState;
 	const { user } = useAuth();
@@ -21,15 +24,18 @@ function PlaylistModal() {
 
 	const handleSubmit = async e => {
 		e.preventDefault();
-		if (playlistName !== '') {
+		if (playlistForm.name !== '' && playlistForm.description !== '') {
 			const resp = await createPlaylist(user.token, {
-				playlist: { title: playlistName }
+				playlist: {
+					title: playlistForm.name,
+					description: playlistForm.description
+				}
 			});
 			playlistDispatch({
 				type: CREATE_PLAYLIST,
 				payload: { playlists: resp }
 			});
-			setPlaylistName('');
+			setPlaylistForm({ name: '', description: '' });
 		}
 	};
 
@@ -40,7 +46,7 @@ function PlaylistModal() {
 	};
 
 	const handleChange = e => {
-		setPlaylistName(e.target.value);
+		setPlaylistForm({ ...playlistForm, [e.target.name]: e.target.value });
 	};
 	return (
 		<div className="modal flex-container" id="modal" onClick={closeModal}>
@@ -69,15 +75,26 @@ function PlaylistModal() {
 					onSubmit={handleSubmit}
 					className="modal-form flex-container flex-column"
 				>
-					<label htmlFor="playlistName" className="visually-hidden">
+					<label htmlFor="name" className="visually-hidden">
 						Playlist Name
 					</label>
 					<input
 						type="text"
-						name="playlistName"
+						name="name"
 						placeholder="Enter Playlist Name"
 						className="input text-center"
-						value={playlistName}
+						value={playlistForm.name}
+						onChange={handleChange}
+					/>
+					<label htmlFor="description" className="visually-hidden">
+						Playlist Description
+					</label>
+					<input
+						type="text"
+						name="description"
+						placeholder="Enter Playlist Description"
+						className="input text-center"
+						value={playlistForm.description}
 						onChange={handleChange}
 					/>
 					<div className="flex-container">
