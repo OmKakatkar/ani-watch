@@ -13,10 +13,10 @@ import {
 	Home,
 	WatchLater
 } from '../pages';
-import './App.css';
-// import { user } from '../constants/user-constant';
 import { SingleVideo } from '../components';
 import { useAuth } from '../context/auth-context';
+import SinglePlaylist from '../pages/Playlist/SinglePlaylist';
+import './App.css';
 
 function App() {
 	const { user } = useAuth();
@@ -40,6 +40,10 @@ function App() {
 							<Route path="/history" element={<History />} />
 							<Route path="/likes" element={<Likes />} />
 							<Route path="/playlist" element={<Playlist />} />
+							<Route
+								path="/playlist/:playlistId"
+								element={<SinglePlaylist />}
+							/>
 							<Route path="/watchlater" element={<WatchLater />} />
 						</>
 					)}

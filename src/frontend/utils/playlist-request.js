@@ -119,12 +119,12 @@ export const addVideoToPlaylist = async (authToken, { _id }, video) => {
  */
 export const deleteVideoFromPlaylist = async (
 	authToken,
-	playlistData,
-	videoData
+	playlistId,
+	videoId
 ) => {
 	try {
 		const { data } = await axios.delete(
-			`${API_PLAY_LIST}/${playlistData._id}/${videoData._id}`,
+			`${API_PLAY_LIST}/${playlistId}/${videoId}`,
 			{
 				headers: {
 					authorization: authToken

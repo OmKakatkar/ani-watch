@@ -5,7 +5,7 @@
 	left: 0;
 	right: 0;
 	z-index: 10;
-	background-color: var(--clr-primary-background-lighter);
+	background-color: var(--clr-overlay);
 }
 
 .modal-body {

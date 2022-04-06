@@ -20,7 +20,6 @@ function PlaylistModal() {
 	const { playlistState, playlistDispatch } = usePlaylistCtx();
 	const { playlists, currentVideo } = playlistState;
 	const { user } = useAuth();
-	console.log(playlistState.playlists);
 
 	const handleSubmit = async e => {
 		e.preventDefault();

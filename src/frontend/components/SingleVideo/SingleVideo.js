@@ -1,20 +1,18 @@
-import {
-	faArrowDownShortWide,
-	faClock,
-	faThumbsUp
-} from '@fortawesome/free-solid-svg-icons';
+import { faClock, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { useParams } from 'react-router-dom';
+
+import { useAuth } from '../../context/auth-context';
 import { getVideoUrl } from '../../utils/video-helpers';
 import { getSingleVideo } from '../../utils/video-request';
 import { addToWatchLater } from '../../utils/watchlater-request';
-import { useAuth } from '../../context/auth-context';
 import { addToHistory } from '../../utils/history-request';
-import Loader from '../Loader/Loader';
-import './SingleVideo.css';
 import { addToLiked } from '../../utils/like-request';
+
+import './SingleVideo.css';
+import Loader from '../Loader/Loader';
 
 function SingleVideo() {
 	const { user } = useAuth();
@@ -68,12 +66,6 @@ function SingleVideo() {
 						>
 							<FontAwesomeIcon
 								icon={faClock}
-								className="text-white text-xhuge"
-							/>
-						</button>
-						<button>
-							<FontAwesomeIcon
-								icon={faArrowDownShortWide}
 								className="text-white text-xhuge"
 							/>
 						</button>

@@ -6,12 +6,19 @@
 	--clr-secondary-background: #313030;
 	--clr-secondary-background-lighter: #6b6b6b;
 	--clr-primary-contrast: #d3d0d0;
+	--clr-overlay: #1d1d1d94;
 	--height-header: 6rem;
 	--height-footer: 5rem;
 	--width-sidebar: 25rem;
 	--padding-1r: 1rem;
 	--padding-1r-2r: 1rem 2rem;
 	--transition-background-fast: background-color 200ms ease-in-out;
+}
+
+html,
+body,
+.app {
+	min-height: auto;
 }
 
 body {
@@ -33,7 +40,6 @@ body::-webkit-scrollbar-thumb {
 
 .app {
 	background-color: var(--clr-primary-background);
-	min-height: 100vh;
 }
 
 .main-container {
