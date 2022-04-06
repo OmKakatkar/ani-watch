@@ -8,6 +8,7 @@ import { removeFromHistory } from '../utils/history-request';
 import { removeFromLiked } from '../utils/like-request';
 import { addToWatchLater } from '../utils/watchlater-request';
 import { removeFromWatchLater } from '../utils/watchlater-request';
+import { getAllPlaylists } from '../utils/playlist-request';
 
 export const homeMenu = [
 	{
@@ -20,7 +21,8 @@ export const homeMenu = [
 		id: '2',
 		icon: <FontAwesomeIcon icon={faArrowDownShortWide} className="text-lg" />,
 		buttonText: 'Save to Playlist',
-		handleClick: () => console.log('FIXME: Connect to Play List')
+		handleClick: getAllPlaylists,
+		type: 'OPEN_MODAL'
 	}
 ];
 
