@@ -8,6 +8,7 @@ function Likes() {
 	return (
 		<LikeProvider className="main-container">
 			<div className="main-container-body">
+      <h1 className="text-white text-center text-heading">Your Liked Videos</h1>
 				<VideoContainer useVideoCtx={useLikeCtx} />
 			</div>
 			{playlistState.showModal && <PlaylistModal />}

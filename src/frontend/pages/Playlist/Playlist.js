@@ -18,9 +18,10 @@ function Playlist() {
 		value: playlists,
 		execute
 	} = useAsync(getAllPlaylists, true, user.token);
-	console.log(playlists);
+
 	return (
 		<div className="main-container-body">
+			<h1 className="text-white text-center text-heading">Your Playlists</h1>
 			<div className="video-grid">
 				{status === 'pending' && <Loader />}
 				{status === 'success' &&

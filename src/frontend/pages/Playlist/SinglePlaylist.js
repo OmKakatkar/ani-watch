@@ -48,14 +48,13 @@ function SinglePlaylist() {
 							<button
 								className="card-btn text-lg"
 								onClick={async () => {
-									setStatus('pending');
-									const resp = deleteVideoFromPlaylist(
+									const resp = await deleteVideoFromPlaylist(
 										user.token,
 										playlistData._id,
 										_id
 									);
+									console.log(resp);
 									setPlaylistData(resp);
-									setStatus('success');
 								}}
 							>
 								<FontAwesomeIcon icon={faTrash} />

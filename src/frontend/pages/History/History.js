@@ -11,6 +11,7 @@ function History() {
 		<HistoryProvider className="main-container">
 			<VideoGridHead useVideoCtx={useHistoryCtx} />
 			<div className="main-container-body main-container-body-offset">
+				<h1 className="text-white text-center text-heading">Your History</h1>
 				<VideoContainer useVideoCtx={useHistoryCtx} />
 			</div>
 			{playlistState.showModal && <PlaylistModal />}

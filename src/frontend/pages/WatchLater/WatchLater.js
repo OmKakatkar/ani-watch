@@ -12,6 +12,9 @@ function WatchLater() {
 	return (
 		<WatchLaterProvider className="main-container">
 			<div className="main-container-body">
+				<h1 className="text-white text-center text-heading">
+					Your Watch Later
+				</h1>
 				<VideoContainer useVideoCtx={useWatchLaterCtx} />
 			</div>
 			{playlistState.showModal && <PlaylistModal />}

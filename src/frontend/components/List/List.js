@@ -9,7 +9,7 @@ function List({ videoData, useVideoCtx }) {
 	return (
 		<ul>
 			{menuList &&
-				menuList.map(({ id, icon, buttonText, handleClick, type }) => (
+				menuList.map(({ id, icon, buttonText, handleClick, type, refresh }) => (
 					<li key={id} className="list-list-item">
 						<button
 							className="list-item-link text-white"
@@ -20,7 +20,7 @@ function List({ videoData, useVideoCtx }) {
 										type,
 										payload: { playlists: resp, currentVideo: videoData }
 									});
-								execute(user.token);
+								refresh && execute(user.token);
 							}}
 						>
 							<div className="text-left">
