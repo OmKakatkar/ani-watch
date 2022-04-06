@@ -43,13 +43,21 @@ export const addToLiked = async (authToken, video) => {
 		notify(success, 'Liked Video');
 		return data.likes;
 	} catch (err) {
+		switch (err.response.status) {
+			case 409:
+				notify(info, 'Please goto Liked Videos to Unlike');
+				break;
+			default:
+				notify(error, 'Please login');
+				console.error('Error ADD LIKED', err.response.status);
+				break;
+		}
 		if (err.response.status === 409) {
-			notify(info, 'Please goto Liked Videos to Unlike');
 		}
-		if (err.response.status !== 409 && err.response.status !== 404) {
-			notify(error, 'Some error occured');
-		}
-		console.error('Error ADD LIKED', err.response.status);
+
+		if (err.response.status)
+			if (err.response.status !== 409 && err.response.status !== 404) {
+			}
 	}
 };
 

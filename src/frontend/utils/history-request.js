@@ -42,10 +42,13 @@ export const addToHistory = async (authToken, video) => {
 		);
 		return data.history;
 	} catch (err) {
+		if (err.status.response === 404) {
+			notify(error, 'Please login');
+		}
 		if (err.response.status !== 409 && err.response.status !== 404) {
 			notify(error, 'Some error occured');
+			console.error('Error ADD HISTORY', err.response.status);
 		}
-		console.error('Error ADD HISTORY', err.response.status);
 	}
 };
 
