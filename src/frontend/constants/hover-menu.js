@@ -31,7 +31,8 @@ export const watchLaterMenu = [
 		id: '1',
 		icon: <FontAwesomeIcon icon={faArrowDownShortWide} className="text-lg" />,
 		buttonText: 'Save to Playlist',
-		handleClick: () => console.log('FIXME: Connect to Play List')
+		handleClick: getAllPlaylists,
+		type: 'OPEN_MODAL'
 	},
 	{
 		id: '2',
@@ -46,7 +47,8 @@ export const historyMenu = [
 		id: '1',
 		icon: <FontAwesomeIcon icon={faArrowDownShortWide} className="text-lg" />,
 		buttonText: 'Save to Playlist',
-		handleClick: () => console.log('FIXME: Connect to Play List')
+		handleClick: getAllPlaylists,
+		type: 'OPEN_MODAL'
 	},
 	{
 		id: '2',
@@ -67,7 +69,8 @@ export const likeMenu = [
 		id: '1',
 		icon: <FontAwesomeIcon icon={faArrowDownShortWide} className="text-lg" />,
 		buttonText: 'Save to Playlist',
-		handleClick: () => console.log('FIXME: Connect to Play List')
+		handleClick: getAllPlaylists,
+		type: 'OPEN_MODAL'
 	},
 	{
 		id: '2',
