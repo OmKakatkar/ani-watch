@@ -1,6 +1,8 @@
 import './List.css';
 import { useAuth } from '../../context/auth-context';
 import { usePlaylistCtx } from '../../context/playlist-context';
+import { notify } from '../../utils/notify';
+import { error } from '../../constants/toast-constants';
 
 function List({ videoData, useVideoCtx }) {
 	const { user } = useAuth();
@@ -14,13 +16,17 @@ function List({ videoData, useVideoCtx }) {
 						<button
 							className="list-item-link text-white"
 							onClick={async () => {
-								const resp = await handleClick(user.token, videoData);
-								type &&
-									playlistDispatch({
-										type,
-										payload: { playlists: resp, currentVideo: videoData }
-									});
-								refresh && execute(user.token);
+								if (user.token) {
+									const resp = await handleClick(user.token, videoData);
+									type &&
+										playlistDispatch({
+											type,
+											payload: { playlists: resp, currentVideo: videoData }
+										});
+									refresh && execute(user.token);
+								} else {
+									notify(error, 'Please Login');
+								}
 							}}
 						>
 							<div className="text-left">

@@ -19,12 +19,13 @@ function SinglePlaylist() {
 	const [playlistData, setPlaylistData] = useState({});
 
 	useEffect(() => {
-		(async () => {
+		const getPlaylistVideos = async () => {
 			setStatus('pending');
-			const resp = await getSinglePlaylist(user.token, { playlistId });
+			const resp = await getSinglePlaylist(user.token, playlistId);
 			setPlaylistData(resp);
 			setStatus('success');
-		})();
+		};
+		getPlaylistVideos();
 	}, [user.token, playlistId]);
 
 	return (
@@ -53,7 +54,6 @@ function SinglePlaylist() {
 										playlistData._id,
 										_id
 									);
-									console.log(resp);
 									setPlaylistData(resp);
 								}}
 							>

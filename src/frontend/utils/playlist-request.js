@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { API_PLAY_LIST } from '../constants/api-constant';
 import { notify } from './notify';
-import { success, error } from '../constants/toast-constants';
+import { success, error, info } from '../constants/toast-constants';
 
 /**
  * Fetches All Playlists
@@ -74,9 +74,9 @@ export const deletePlaylist = async (authToken, { _id }) => {
  * @async
  * @function
  */
-export const getSinglePlaylist = async (authToken, { _id }) => {
+export const getSinglePlaylist = async (authToken, id) => {
 	try {
-		const { data } = await axios.get(`${API_PLAY_LIST}/${_id}`, {
+		const { data } = await axios.get(`/api/user/playlists/${id}`, {
 			headers: {
 				authorization: authToken
 			}
@@ -84,7 +84,7 @@ export const getSinglePlaylist = async (authToken, { _id }) => {
 		return data.playlist;
 	} catch (err) {
 		notify(error, 'Unable to fetch data');
-		console.error('Error GET SINGLE PLAYLIST', err.response.status);
+		console.error('Error GET SINGLE PLAYLIST', err);
 	}
 };
 
@@ -107,6 +107,10 @@ export const addVideoToPlaylist = async (authToken, { _id }, video) => {
 		notify(success, 'Added to Playlist');
 		return data.playlist;
 	} catch (err) {
+		if (err.response.status === 409) {
+			notify(info, 'Video already in Playlist');
+			return;
+		}
 		notify(error, 'Unable to add data');
 		console.error('Error POST ADD VIDEO TO PLAYLIST', err.response.status);
 	}
