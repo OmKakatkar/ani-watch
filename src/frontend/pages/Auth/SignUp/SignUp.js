@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { Input } from '../../../components';
 import { SIGNUP_DB } from '../../../constants/signup-form-data';
@@ -18,10 +18,12 @@ function SignUp() {
 	const { handleSignUp } = useAuth();
 	const [signUpData, setSignUpData] = useState(initialSignUpData);
 	const [acceptTnC, setAcceptTnC] = useState(false);
+	const navigate = useNavigate();
 
 	const handleSubmit = async e => {
 		e.preventDefault();
 		await handleSignUp(signUpData);
+		navigate('/');
 	};
 
 	const handleChange = e => {
