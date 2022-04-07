@@ -4,8 +4,12 @@ import {
 	faTelevision
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/auth-context';
 import './Header.css';
 function Header() {
+	const { user, handleLogout } = useAuth();
+	const navigate = useNavigate();
 	return (
 		<header className="header flex">
 			<div className="flex">
@@ -23,6 +27,19 @@ function Header() {
 				<button className="btn">
 					<FontAwesomeIcon icon={faSearch} className="text-white text-lg" />
 				</button>
+			</div>
+			<div>
+				{user.token && (
+					<button
+						className="btn bg-green rounded"
+						onClick={() => {
+							handleLogout();
+							navigate('/');
+						}}
+					>
+						Log Out
+					</button>
+				)}
 			</div>
 			<div className="avatar flex-container">
 				<div className="avatar-content text-white font-bold">R</div>

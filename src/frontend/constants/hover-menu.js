@@ -8,6 +8,7 @@ import { removeFromHistory } from '../utils/history-request';
 import { removeFromLiked } from '../utils/like-request';
 import { addToWatchLater } from '../utils/watchlater-request';
 import { removeFromWatchLater } from '../utils/watchlater-request';
+import { getAllPlaylists } from '../utils/playlist-request';
 
 export const homeMenu = [
 	{
@@ -20,7 +21,8 @@ export const homeMenu = [
 		id: '2',
 		icon: <FontAwesomeIcon icon={faArrowDownShortWide} className="text-lg" />,
 		buttonText: 'Save to Playlist',
-		handleClick: () => console.log('FIXME: Connect to Play List')
+		handleClick: getAllPlaylists,
+		type: 'OPEN_MODAL'
 	}
 ];
 
@@ -29,13 +31,15 @@ export const watchLaterMenu = [
 		id: '1',
 		icon: <FontAwesomeIcon icon={faArrowDownShortWide} className="text-lg" />,
 		buttonText: 'Save to Playlist',
-		handleClick: () => console.log('FIXME: Connect to Play List')
+		handleClick: getAllPlaylists,
+		type: 'OPEN_MODAL'
 	},
 	{
 		id: '2',
 		icon: <FontAwesomeIcon icon={faTrash} className="text-lg" />,
 		buttonText: 'Remove from Watch Later',
-		handleClick: removeFromWatchLater
+		handleClick: removeFromWatchLater,
+		refresh: true
 	}
 ];
 
@@ -44,7 +48,8 @@ export const historyMenu = [
 		id: '1',
 		icon: <FontAwesomeIcon icon={faArrowDownShortWide} className="text-lg" />,
 		buttonText: 'Save to Playlist',
-		handleClick: () => console.log('FIXME: Connect to Play List')
+		handleClick: getAllPlaylists,
+		type: 'OPEN_MODAL'
 	},
 	{
 		id: '2',
@@ -56,7 +61,8 @@ export const historyMenu = [
 		id: '3',
 		icon: <FontAwesomeIcon icon={faTrash} className="text-lg" />,
 		buttonText: 'Remove from History',
-		handleClick: removeFromHistory
+		handleClick: removeFromHistory,
+		refresh: true
 	}
 ];
 
@@ -65,7 +71,8 @@ export const likeMenu = [
 		id: '1',
 		icon: <FontAwesomeIcon icon={faArrowDownShortWide} className="text-lg" />,
 		buttonText: 'Save to Playlist',
-		handleClick: () => console.log('FIXME: Connect to Play List')
+		handleClick: getAllPlaylists,
+		type: 'OPEN_MODAL'
 	},
 	{
 		id: '2',
@@ -77,6 +84,7 @@ export const likeMenu = [
 		id: '3',
 		icon: <FontAwesomeIcon icon={faTrash} className="text-lg" />,
 		buttonText: 'Remove from Liked Videos',
-		handleClick: removeFromLiked
+		handleClick: removeFromLiked,
+		refresh: true
 	}
 ];

@@ -1,0 +1,71 @@
+.modal {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+	background-color: var(--clr-overlay);
+}
+
+.modal-body {
+	background-color: var(--clr-secondary-background);
+	border-radius: 1rem;
+	max-height: 50vh;
+	width: 20vw;
+	position: relative;
+}
+
+.modal-list {
+	padding: 5rem;
+	padding-bottom: 1rem;
+	margin-bottom: 15rem;
+	max-height: calc(50vh - 15rem);
+	width: 100;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.modal-list-button {
+	cursor: pointer;
+	border: 1px solid var(--clr-secondary-background-lighter);
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: var(--transition-background-fast);
+}
+
+.modal-list-button span {
+	margin-left: 1rem;
+}
+
+.modal-list-button:hover {
+	background-color: var(--clr-secondary-background-lighter);
+}
+
+.modal-form {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	min-height: 15rem;
+	border-top: 1px solid var(--clr-secondary-background-lighter);
+	padding: 0 5rem;
+}
+
+.visually-hidden {
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+
+.modal-form input {
+	padding: var(--padding-1r-2r);
+	background-color: var(--clr-secondary-background);
+	border: 1px solid var(--clr-secondary-background-lighter);
+	color: var(--white);
+}
+
+.modal-form button {
+	margin: 1rem;
+}

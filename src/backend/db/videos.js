@@ -127,12 +127,13 @@ export const videos = [
 		category: 'Anime'
 	},
 	{
-		_id: 'I6KRIU_cl4g',
-		title: 'Monster Girl Doctor - Full Episodes [English Sub]',
+		_id: 'W1GEE5u2Apc',
+		title:
+			'The Greatest Demon Lord Is Reborn as a Typical Nobody - Episode 01 [English Sub]',
 		description:
-			'After years of conflict, humans and monsters have settled their differences and are now at peace. This post-war era led to the foundation of Lindworm—a town which has since become the focal point of racial harmony.',
-		theme: 'Medical',
-		genre: ['Comedy', 'Fantasy', 'Romance', 'Ecchi'],
+			'As the most powerful entity of all time, the Demon Lord Varvatos thinks life is a big fat snore. When he takes matters into his own hands and decides to reincarnate, he calibrates his magical strength to be perfectly average. But there is no way he could have predicted that everyone in the modern world would be weak as hell, which means he is totally overpowered once again! Reborn under the name Ard, he has ladies fawning over him, the royal family begging him to become the next king, and an ex-minion insisting on killing him?',
+		theme: 'School',
+		genre: ['Action', 'Fantasy'],
 		category: 'Anime'
 	},
 	{
