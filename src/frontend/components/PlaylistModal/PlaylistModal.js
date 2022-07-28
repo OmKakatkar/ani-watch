@@ -1,50 +1,55 @@
-import './PlaylistModal.css';
-import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAdd } from '@fortawesome/free-solid-svg-icons';
+import "./PlaylistModal.css";
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAdd } from "@fortawesome/free-solid-svg-icons";
 import {
 	CREATE_PLAYLIST,
-	usePlaylistCtx
-} from '../../context/playlist-context';
-import { useAuth } from '../../context/auth-context';
+	usePlaylistCtx,
+} from "../../context/playlist-context";
+import { useAuth } from "../../context/auth-context";
 import {
 	addVideoToPlaylist,
-	createPlaylist
-} from '../../utils/playlist-request';
+	createPlaylist,
+} from "../../utils/playlist-request";
 
 function PlaylistModal() {
 	const [playlistForm, setPlaylistForm] = useState({
-		name: '',
-		description: ''
+		name: "",
+		description: "",
 	});
 	const { playlistState, playlistDispatch } = usePlaylistCtx();
 	const { playlists, currentVideo } = playlistState;
 	const { user } = useAuth();
 
-	const handleSubmit = async e => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if (playlistForm.name !== '' && playlistForm.description !== '') {
+		if (playlistForm.name !== "" && playlistForm.description !== "") {
 			const resp = await createPlaylist(user.token, {
 				playlist: {
 					title: playlistForm.name,
-					description: playlistForm.description
-				}
+					description: playlistForm.description,
+				},
 			});
+			await addVideoToPlaylist(
+				user.token,
+				{ _id: resp.at(-1)._id },
+				currentVideo
+			);
 			playlistDispatch({
 				type: CREATE_PLAYLIST,
-				payload: { playlists: resp }
+				payload: { playlists: resp },
 			});
-			setPlaylistForm({ name: '', description: '' });
+			setPlaylistForm({ name: "", description: "" });
 		}
 	};
 
-	const closeModal = e => {
-		if (e.target.id === 'modal') {
-			playlistDispatch({ type: 'CLOSE_MODAL' });
+	const closeModal = (e) => {
+		if (e.target.id === "modal") {
+			playlistDispatch({ type: "CLOSE_MODAL" });
 		}
 	};
 
-	const handleChange = e => {
+	const handleChange = (e) => {
 		setPlaylistForm({ ...playlistForm, [e.target.name]: e.target.value });
 	};
 	return (
@@ -84,6 +89,7 @@ function PlaylistModal() {
 						className="input text-center"
 						value={playlistForm.name}
 						onChange={handleChange}
+						required
 					/>
 					<label htmlFor="description" className="visually-hidden">
 						Playlist Description
@@ -95,6 +101,7 @@ function PlaylistModal() {
 						className="input text-center"
 						value={playlistForm.description}
 						onChange={handleChange}
+						required
 					/>
 					<div className="flex-container">
 						<button type="submit" className="btn bg-green rounded">
