@@ -1,17 +1,19 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
-import useDetectClickOutside from '../../hook/useDetectClickOutside';
-import HoverCard from '../../containers/HoverCard/HoverCard';
-import { getImageUrl } from '../../utils/video-helpers';
-import { List } from '../';
+import useDetectClickOutside from "../../hook/useDetectClickOutside";
+import HoverCard from "../../containers/HoverCard/HoverCard";
+import { getImageUrl } from "../../utils/video-helpers";
+import { List } from "../";
 
-import './VideoCard.css';
+import "./VideoCard.css";
+import { useAuth } from "../../context/auth-context";
 
 function VideoCard({ videoData, useVideoCtx }) {
 	const { _id, title, category } = videoData;
 	const { triggerRef, nodeRef, showItem } = useDetectClickOutside(false);
+	const { user } = useAuth();
 
 	return (
 		<article className="video-card flex">
@@ -25,9 +27,11 @@ function VideoCard({ videoData, useVideoCtx }) {
 				</div>
 				<div className="video-card-spacer"></div>
 			</Link>
-			<button className="card-btn text-lg" ref={triggerRef}>
-				<FontAwesomeIcon icon={faEllipsisVertical} />
-			</button>
+			{user.token && (
+				<button className="card-btn text-lg" ref={triggerRef}>
+					<FontAwesomeIcon icon={faEllipsisVertical} />
+				</button>
+			)}
 			{showItem && (
 				<HoverCard ref={nodeRef}>
 					<List videoData={videoData} useVideoCtx={useVideoCtx} />

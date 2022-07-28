@@ -1,32 +1,30 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
-import { Input } from '../../../components';
-import { SIGNUP_DB } from '../../../constants/signup-form-data';
-import { TEST_USER_SIGNUP } from '../../../constants/test-user';
-import { useAuth } from '../../../context/auth-context';
+import { Input } from "../../../components";
+import { SIGNUP_DB } from "../../../constants/signup-form-data";
+import { TEST_USER_SIGNUP } from "../../../constants/test-user";
+import { useAuth } from "../../../context/auth-context";
 
-import '../Auth.css';
+import "../Auth.css";
 
 function SignUp() {
 	const initialSignUpData = {
-		firstName: '',
-		lastName: '',
-		email: '',
-		password: ''
+		firstName: "",
+		lastName: "",
+		email: "",
+		password: "",
 	};
 	const { handleSignUp } = useAuth();
 	const [signUpData, setSignUpData] = useState(initialSignUpData);
 	const [acceptTnC, setAcceptTnC] = useState(false);
-	const navigate = useNavigate();
 
-	const handleSubmit = async e => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		await handleSignUp(signUpData);
-		navigate('/');
 	};
 
-	const handleChange = e => {
+	const handleChange = (e) => {
 		setSignUpData({ ...signUpData, [e.target.name]: e.target.value });
 	};
 
@@ -35,16 +33,17 @@ function SignUp() {
 	};
 
 	return (
-		<main className="flex-container">
+		<main className="flex-container auth-container">
 			<div className="form-container">
 				<form className="flex-container flex-column" onSubmit={handleSubmit}>
 					<h1 className="text-xhuge form-heading">Sign Up</h1>
-					{SIGNUP_DB.map(({ id, type, label, name }) => (
+					{SIGNUP_DB.map(({ id, type, label, name, autoComplete }) => (
 						<Input
 							key={id}
 							type={type}
 							label={label}
 							name={name}
+							autoComplete={autoComplete}
 							value={signUpData[name]}
 							handleChange={handleChange}
 						/>
@@ -58,7 +57,7 @@ function SignUp() {
 								className="checkbox-input"
 								checked={acceptTnC}
 								onChange={() =>
-									setAcceptTnC(currentAcceptTnC => !currentAcceptTnC)
+									setAcceptTnC((currentAcceptTnC) => !currentAcceptTnC)
 								}
 							/>
 							<div className="checkbox-icon"></div>I accept all Terms &

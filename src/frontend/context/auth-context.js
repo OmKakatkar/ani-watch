@@ -1,23 +1,25 @@
-import { createContext, useContext, useState } from 'react';
-import { login, signup } from '../utils/auth-request';
+import { createContext, useContext, useState } from "react";
+import { login, signup } from "../utils/auth-request";
 
 const AuthContext = createContext();
 
-const currentUser = 'ANI_WATCH_USER';
+const currentUser = "ANI_WATCH_USER";
 
 const AuthProvider = ({ children }) => {
 	const initialUser = JSON.parse(localStorage.getItem(currentUser)) || {};
 	const [user, setUser] = useState(initialUser);
 
-	const handleLogin = async ({ email, password }) => {
+	const handleLogin = async ({ email, password }, isLoginRemember) => {
 		try {
 			const { encodedToken: token } = await login({
 				email,
-				password
+				password,
 			});
-			if (token) {
+			if (token && isLoginRemember) {
 				localStorage.setItem(currentUser, JSON.stringify({ token }));
 				setUser(JSON.parse(localStorage.getItem(currentUser)));
+			} else if (token) {
+				setUser({ token });
 			}
 		} catch (err) {
 			console.error(err);
@@ -30,11 +32,12 @@ const AuthProvider = ({ children }) => {
 				firstName,
 				lastName,
 				email,
-				password
+				password,
 			});
 			if (token) {
-				localStorage.setItem(currentUser, JSON.stringify({ token }));
-				setUser(JSON.parse(localStorage.getItem(currentUser)));
+				// localStorage.setItem(currentUser, JSON.stringify({ token }));
+				// setUser(JSON.parse(localStorage.getItem(currentUser)));
+				setUser({ token });
 			}
 		} catch (err) {
 			console.error(err);

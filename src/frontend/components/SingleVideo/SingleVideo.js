@@ -2,7 +2,7 @@ import { faClock, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 import { useAuth } from "../../context/auth-context";
 import { getVideoUrl } from "../../utils/video-helpers";
@@ -14,7 +14,7 @@ import { getLiked } from "../../utils/like-request";
 
 import "./SingleVideo.css";
 import { notify } from "../../utils/notify";
-import { info } from "../../constants/toast-constants";
+import { error, info } from "../../constants/toast-constants";
 
 function SingleVideo() {
 	const { user } = useAuth();
@@ -22,6 +22,8 @@ function SingleVideo() {
 	const [video, setVideo] = useState({});
 	const [loading, setLoading] = useState(false);
 	const [likedVideos, setLikedVideos] = useState([]);
+	const navigate = useNavigate();
+	const location = useLocation();
 	useEffect(() => {
 		(async () => {
 			try {
@@ -37,13 +39,15 @@ function SingleVideo() {
 
 	useEffect(() => {
 		(async () => {
-			try {
-				setLoading(true);
-				const resp = await getLiked(user.token);
-				setLikedVideos(resp);
-				setLoading(false);
-			} catch (err) {
-				console.error(err);
+			if (user.token) {
+				try {
+					setLoading(true);
+					const resp = await getLiked(user.token);
+					setLikedVideos(resp);
+					setLoading(false);
+				} catch (err) {
+					console.error(err);
+				}
 			}
 		})();
 	}, [user.token]);
@@ -62,7 +66,9 @@ function SingleVideo() {
 					playing={true}
 					onPlay={async () => {
 						setLoading(true);
-						await addToHistory(user.token, video);
+						if (user.token) {
+							await addToHistory(user.token, video);
+						}
 						setLoading(false);
 					}}
 				/>
@@ -74,13 +80,18 @@ function SingleVideo() {
 							disabled={loading}
 							onClick={async () => {
 								setLoading(true);
-								if (!isLiked) {
-									const resp = await addToLiked(user.token, video);
-									setLikedVideos(resp);
+								if (user.token) {
+									if (!isLiked) {
+										const resp = await addToLiked(user.token, video);
+										setLikedVideos(resp);
+									} else {
+										notify(info, "Please goto Liked Videos to Unlike");
+									}
+									setLoading(false);
 								} else {
-									notify(info, "Please goto Liked Videos to Unlike");
+									notify(error, "Please Login");
+									navigate("/login", { state: { path: location.pathname } });
 								}
-								setLoading(false);
 							}}
 						>
 							<FontAwesomeIcon
@@ -91,9 +102,14 @@ function SingleVideo() {
 						<button
 							disabled={loading}
 							onClick={async () => {
-								setLoading(true);
-								await addToWatchLater(user.token, video);
-								setLoading(false);
+								if (user.token) {
+									setLoading(true);
+									await addToWatchLater(user.token, video);
+									setLoading(false);
+								} else {
+									notify(error, "Please Login");
+									navigate("/login", { state: { path: location.pathname } });
+								}
 							}}
 						>
 							<FontAwesomeIcon
